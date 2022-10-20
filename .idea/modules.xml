@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/DrawGraph/DrawGraph.iml" filepath="$PROJECT_DIR$/DrawGraph/DrawGraph.iml" />
       <module fileurl="file://$PROJECT_DIR$/Processing3Template.iml" filepath="$PROJECT_DIR$/Processing3Template.iml" />
     </modules>
   </component>
