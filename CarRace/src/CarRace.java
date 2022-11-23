@@ -67,20 +67,29 @@ public class CarRace extends PApplet {
   }
 
   public void drawGraph(int fps) {
-    translate(20, height - 20);
+    final int xoff = 40;
+    final int yoff = 40;
+
+    translate(xoff, height - yoff);
     stroke(0);
     strokeWeight(1);
 
     int nValues = carPosHistory.size();
-    int stepX = (width - 20) / (nValues / fps);
+    int stepX = (width - xoff) / (nValues / fps) - 2;
+    int maxY = max(accCarPosHistory.get(nValues - 1), carPosHistory.get(nValues - 1));
 
-    line(0, 0, width - 20, 0); //X Axis
+
+    line(0, 0, width - xoff, 0); //X Axis
     for (int i = 0; i < width; i += stepX) {
       line(i, 5, i, - 5);
-      text(i/stepX,i-6,15);
+      text(i / stepX, i - 6, 15);
     }
 
-    line(0, 0, 0, - height - 20); //Y Axis
+    line(0, 0, 0, - maxY); //Y Axis
+    for (int i = 0; i < maxY; i += 25) {
+      line(- 3, - i, 3, - i);
+      text(i, - 35, - i);
+    }
 
     for (int i = 0; i * fps < nValues; i++) {
       strokeWeight(4);
