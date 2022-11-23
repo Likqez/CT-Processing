@@ -1,6 +1,7 @@
 import processing.core.PApplet;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CarRace extends PApplet {
@@ -76,7 +77,7 @@ public class CarRace extends PApplet {
 
     int nValues = carPosHistory.size();
     int stepX = (width - xoff) / (nValues / fps) - 2;
-    int maxY = max(accCarPosHistory.get(nValues - 1), carPosHistory.get(nValues - 1));
+    int maxY = Math.max(Collections.max(accCarPosHistory), Collections.max(carPosHistory));
 
 
     line(0, 0, width - xoff, 0); //X Axis
