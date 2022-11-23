@@ -1,5 +1,8 @@
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CarRace extends PApplet {
 
   final int startPosX = 75;
@@ -16,12 +19,16 @@ public class CarRace extends PApplet {
   float accCarPosX;
   float t;
 
+  //Ploting
+  List<Integer> carPosHistory = new ArrayList<>();
+  List<Integer> accCarPosHistory = new ArrayList<>();
+
   public static void main(String[] args) {
     PApplet.main(CarRace.class);
   }
 
   public void settings() {
-    size(800, 800);
+    size(1000, 800);
   }
 
   public void setup() {
@@ -45,15 +52,44 @@ public class CarRace extends PApplet {
       accCarPosX = (a * t * t) / 2 + accCarStartPosX;
     } else accCarPosX = accCarStartPosX;
 
-    if (carPosX >= finishPosX || accCarPosX >= finishPosX) {
-      noLoop();
-    }
-
     text("t[s]: " + t, 100, 10);
     text("v[px/s]: " + v, 200, 10);
-    text("v[px/s]: " + a*t, 300, 10);
+    text("v[px/s]: " + a * t, 300, 10);
 
     drawCars();
+    carPosHistory.add((int) carPosX);
+    accCarPosHistory.add((int) accCarPosX);
+
+    if (carPosX >= finishPosX || accCarPosX >= finishPosX) {
+      drawGraph((int) frameRate);
+      noLoop();
+    }
+  }
+
+  public void drawGraph(int fps) {
+    translate(20, height - 20);
+    stroke(0);
+    strokeWeight(1);
+
+    int nValues = carPosHistory.size();
+    int stepX = (width - 20) / (nValues / fps);
+
+    line(0, 0, width - 20, 0); //X Axis
+    for (int i = 0; i < width; i += stepX) {
+      line(i, 5, i, - 5);
+      text(i/stepX,i-6,15);
+    }
+
+    line(0, 0, 0, - height - 20); //Y Axis
+
+    for (int i = 0; i * fps < nValues; i++) {
+      strokeWeight(4);
+      stroke(0, 255, 0);
+      point(i * stepX, - (carPosHistory.get((i * fps))));
+      stroke(0, 0, 255);
+      point(i * stepX, - (accCarPosHistory.get((i * fps))));
+      strokeWeight(1);
+    }
   }
 
   public void drawCars() {
