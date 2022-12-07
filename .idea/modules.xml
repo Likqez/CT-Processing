@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/CarRace/CarRace.iml" filepath="$PROJECT_DIR$/CarRace/CarRace.iml" />
       <module fileurl="file://$PROJECT_DIR$/DrawGraph/DrawGraph.iml" filepath="$PROJECT_DIR$/DrawGraph/DrawGraph.iml" />
       <module fileurl="file://$PROJECT_DIR$/Processing3Template.iml" filepath="$PROJECT_DIR$/Processing3Template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Vektor/Vektor.iml" filepath="$PROJECT_DIR$/Vektor/Vektor.iml" />
     </modules>
   </component>
 </project>
