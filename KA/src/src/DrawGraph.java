@@ -30,17 +30,17 @@ public class DrawGraph extends PApplet {
     int valLin = (4 * x + 60);
     int valPar = (int) Math.pow(x, 2) / 20;
 
-    if(valLin == valPar) {
-      stroke(0,0,255);
-      strokeWeight(10);
-      point(x, -valPar);
-    }
-
     strokeWeight(5);
     stroke(255,0,0);
     point(x, -valLin); // Lin
     stroke(0,255,0);
     point(x,-valPar); //Par
+
+    if(valLin == valPar) {
+      stroke(0,0,255);
+      strokeWeight(10);
+      point(x, -valPar);
+    }
 
     i++;
     //if (i % 5 == 0)
