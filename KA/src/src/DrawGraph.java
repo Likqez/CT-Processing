@@ -30,8 +30,8 @@ public class DrawGraph extends PApplet {
     line(0, 200, 0, - height); // Y-Axis
 
 
-    int valLin = (4 * x + 60);
-    int valPar = (int) Math.pow(x, 2) / 20;
+    int valLin =(1 * x + 60);
+    int valPar = ((int) Math.pow(x-90, 2) / 20)-100;
 
     if(valPar < valLin) {
       stroke(255,0,0);
@@ -54,7 +54,7 @@ public class DrawGraph extends PApplet {
     if((linBigger && lastYPar > lastYLin) || (!linBigger && lastYLin > lastYPar)){
       stroke(0,0,255);
       strokeWeight(10);
-      point(x, -valPar);
+      point(x, -min(lastYLin,valLin));
     }
 
     lastYLin = valLin;
