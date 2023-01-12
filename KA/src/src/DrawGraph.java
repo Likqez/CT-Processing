@@ -4,6 +4,9 @@ import processing.core.PApplet;
 
 public class DrawGraph extends PApplet {
   int stepX, i, x = -200;
+  int lastYLin, lastYPar;
+
+  boolean linBigger;
 
   public static void main(String[] args) {
     PApplet.main(DrawGraph.class);
@@ -30,10 +33,13 @@ public class DrawGraph extends PApplet {
     int valLin = (4 * x + 60);
     int valPar = (int) Math.pow(x, 2) / 20;
 
-    if(valPar < valLin)
+    if(valPar < valLin) {
       stroke(255,0,0);
-    else if (valLin < valPar)
+      linBigger = true;
+    } else if (valLin < valPar) {
       stroke(0,255,0);
+      linBigger = false;
+    }
 
     strokeWeight(5);
     point(x, -valLin); // Lin
@@ -44,6 +50,17 @@ public class DrawGraph extends PApplet {
       strokeWeight(10);
       point(x, -valPar);
     }
+
+    if((linBigger && lastYPar > lastYLin) || (!linBigger && lastYLin > lastYPar)){
+      stroke(0,0,255);
+      strokeWeight(10);
+      point(x, -valPar);
+    }
+
+    lastYLin = valLin;
+    lastYPar = valPar;
+
+
 
     i++;
     //if (i % 5 == 0)
