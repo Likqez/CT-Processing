@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CarRace/CarRace.iml" filepath="$PROJECT_DIR$/CarRace/CarRace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ColorManipulation/ColorManipulation.iml" filepath="$PROJECT_DIR$/ColorManipulation/ColorManipulation.iml" />
       <module fileurl="file://$PROJECT_DIR$/DrawGraph/DrawGraph.iml" filepath="$PROJECT_DIR$/DrawGraph/DrawGraph.iml" />
       <module fileurl="file://$PROJECT_DIR$/EdgeDetection/EdgeDetection.iml" filepath="$PROJECT_DIR$/EdgeDetection/EdgeDetection.iml" />
       <module fileurl="file://$PROJECT_DIR$/Images/Images.iml" filepath="$PROJECT_DIR$/Images/Images.iml" />
